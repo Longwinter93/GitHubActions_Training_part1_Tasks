@@ -1,0 +1,25 @@
+name: Lint Test Deploy Workflow
+on: push
+#This job will be executed on Task2 directory
+jobs:
+    TestLintDeploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting our code in the GitHub Repo onto that runner machine
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci 
+            - name: Running lint
+              run: npm run lint 
+            - name: Running test
+              run: npm run test 
+            - name: Running build
+              run: npm run build  
+            - name: Deploy
+              run: echo "Deploying..."
+
+    

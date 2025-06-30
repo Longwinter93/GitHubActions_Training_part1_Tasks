@@ -1,0 +1,71 @@
+name: Lint Test Deploy Workflow with 4 jobs
+on: push
+#This job will be executed on Task2 directory
+jobs:
+    ConfigJob:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting our code in the GitHub Repo onto that runner machine
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci 
+    LintJob:
+        needs: ConfigJob
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting our code in the GitHub Repo onto that runner machine
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci 
+            - name: Running lint
+              run: npm run lint 
+    TestJob:
+        needs: LintJob
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting our code in the GitHub Repo onto that runner machine
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci 
+            - name: Running test
+              run: npm run test
+    BuildJob:
+        needs: TestJob
+        runs-on: ubuntu-latest
+        steps:
+            - name: Getting our code in the GitHub Repo onto that runner machine
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci 
+            - name: Running build
+              run: npm run build
+    DeployJob:
+        needs: BuildJob
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Getting our code in the GitHub Repo onto that runner machine
+              uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: npm ci 
+            - name: Deploy
+              run: echo "Deploying..."
