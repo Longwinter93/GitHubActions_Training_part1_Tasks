@@ -4,5 +4,6 @@ jobs:
     Issues:
         runs-on: ubuntu-latest
         steps:
-            - name: Output Handling Issues
-              run: echo "${{ toJSON(github.event) }}"
+          - name: Output Event Details
+            run: echo "${{ toJSON(github.event) }}"
+
