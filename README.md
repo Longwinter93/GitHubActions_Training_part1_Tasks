@@ -3,5 +3,5 @@
 <br>We simply learn about Basic Building Blocks & Components related to GitHub Action.
 <br>We learn also about GitHub Context & Expressions.
 <br> We need to create two workflows:
-<br>A workflow that runs lint, test and build scripts. It could be one job or a few jobs. We can test it locally, then we can put all commands on a workflow
-<br>A workflow that is triggered by an issues event. It is necessary to use a github context and use shell via echo
+<br>First workflow that runs lint, test and build scripts. A workflow consists of one job and a few jobs was created. We can test it locally, then we can put all commands on a workflow
+<br>Second workflow that is triggered by an issues event. It is necessary to use a github context and use shell via echo
