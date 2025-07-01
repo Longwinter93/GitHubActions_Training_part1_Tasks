@@ -1,6 +1,5 @@
 name: Lint Test Deploy Workflow with 4 jobs
 on: push
-#This job will be executed on Task2 directory
 jobs:
     ConfigJob:
         runs-on: ubuntu-latest

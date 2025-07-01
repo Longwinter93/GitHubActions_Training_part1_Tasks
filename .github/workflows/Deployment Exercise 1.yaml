@@ -1,6 +1,5 @@
 name: Lint Test Deploy Workflow
 on: push
-#This job will be executed on Task2 directory
 jobs:
     TestLintDeploy:
         runs-on: ubuntu-latest
